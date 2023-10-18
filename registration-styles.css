@@ -37,7 +37,17 @@ body {
     margin-left: 1em;
 }
 
-
+#login-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    border-radius: 500px;
+    background-color: black;
+    padding: 0.6em 3em;
+    text-decoration: none;
+    margin: 1em;
+}
 
 #form-title {
     margin: 0em;
@@ -186,6 +196,8 @@ select {
     padding: 0.6em 3em;
     text-decoration: none;
     margin-top: 1.5em;
+    font-size: 1em;
+    cursor: pointer;
 }
 
 #sign-up-text {
