@@ -60,7 +60,7 @@ body {
 
 #form-container {
     width: 30%;
-    height: 65%;
+    height: 60%;
     border: solid 1px rgb(215,215,215);
     border-radius: 1em;
     background-color: white;
@@ -204,6 +204,32 @@ select {
     font-size: 0.9em;
     text-align: center;
     margin-top: 0.5em;
+}
+
+/*
+    red: #c41b1b #fad9d9 "Registration failed! Please fill up all the required information."
+    green: #0e8f28 #d9ffe1 "Registration sucessful! You may now login with your created account."
+    
+*/
+
+#form-message {
+    font-size: 0.9em;
+    color: #0e8f28;
+    background-color: #d9ffe1;
+    margin: 0;
+    border: solid 1px #0e8f28;
+    border-radius: 0.5em;
+    width: 90%;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden      ;
+}
+
+
+#form-message p{
+    margin: 0;
 }
 
 #copyright-text {

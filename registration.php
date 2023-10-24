@@ -8,13 +8,12 @@
             <img src="img/valtech-logo-alternate.png">
             <h1 id="logo-text">myVALTECH</h1>
         </div> -->
-
         <img id="logo" src="img/valtech-black.png">
         <a href="" id="login-button">Login</a>
         <h1 id="form-title">Create a VALTECH account</h1>
         <p id="form-text">Access the myVALTECH portal by creating a VALTECH account</p>
         <div id="form-container">
-            <form>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 
                 <div id="name">
                     <div id="last-name">
@@ -122,9 +121,60 @@
 
                 <p id="sign-up-text">By clicking on sign-up, you agree to our Terms of Service and acknowledge our Privacy Policy.</p>
                 
+                <div id="form-message">
+                    <p id="form-message-text">Registration sucessful! You may now login with your account.</p>
+                </div>
+
             </form>
             
             <p id="copyright-text">Copyright © 2023 Valenzuela Institute of Technology. All rights reserved.</p>
+
+
+            <?php
+           
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (!empty($_POST["lastName"]) && !empty($_POST["firstName"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["confirm-password"]) && $_POST["password"] == $_POST["confirm-password"]) {
+                    $lastName = strtoupper($_POST["lastName"]);
+                    $firstName = strtoupper($_POST["firstName"]);
+                    $email = $_POST["email"];
+                    $password = $_POST["password"];
+
+                    $servername = "localhost";
+                    $username = "root";
+                    $server_password = "";
+                    
+                    try {
+                        $conn = new PDO("mysql:host=$servername;dbname=db_students", $username, $server_password);
+                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                        $sql_count = "SELECT COUNT(email) AS num FROM tbl_studentInfo WHERE email = :email";
+                        $stmt = $conn->prepare($sql_count);
+
+
+                        $stmt->bindValue(':email', $email);
+                        $stmt->execute();
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                        if ($row['num'] > 0) {
+                            echo '<script src="registration-fail-duplicate.js"></script>';
+                        } else {
+                            $sql = "INSERT INTO tbl_studentInfo (lastName, firstName, email, password) VALUES ('$lastName', '$firstName', '$email', '$password')";
+                            $conn->exec($sql);
+                            echo '<script src="registration-success.js"></script>';
+                        }
+
+                    } catch(PDOException $e) {
+                        echo "Connection failed: " . $e->getMessage();
+                    }
+                } else {
+                    echo '<script src="registration-fail.js"></script>';
+                }
+
+                
+                    
+            }
+
+        ?>
         </div>
     </body>
 </html>
