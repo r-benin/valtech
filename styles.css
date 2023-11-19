@@ -1,106 +1,261 @@
-/* valtech colors: #490648 rgba(73,6,72,255) */
-
-
-/* index.html styles */
 body {
-    max-width: 100vw;
     margin: 0;
-}
-
-#navbar {
-    position: fixed;
-    height: 100px;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background-color: rgba(73,6,72, 0.5);
-    display: flex;
-}
-
-#logo-container {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-}
-
-#logo-img {
-    display: flex;
-    align-items: center;
-}
-
-#navbar div img {
-    width: 50px;
-}
-
-#logo-text {
-    color: white;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-}
-
-#navbar h3 {
+    max-width: 100vw;
+    height: 100vh;
     font-family: 'Arial', sans-serif;
-}
-
-#front-page-container {
-    width: 100%;
-    height: 70vh;
-    background-color: lightblue;
-}
-
-#front-page-ui-container {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 70vh;
+    background-color: rgba(240,242,245,255);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-family: 'arial', sans-serif;
-    font-size: 1.5em;
 }
 
-#front-page-ui-container a{
-    text-decoration: none;
-    color: rgba(255,255,255,1);
-    border: solid white;
-    padding: 10px 20px;
-    border-radius: 500px;
-    opacity: 0.8;
+#navbar {
+    position: absolute;
+    width: 100vw;
+    height: 4em;
+    background-color: #333333;
+    top: 0;
+    display: flex;
+    align-items: center;
 }
 
-#front-page-ui-container a:hover{
-    background-color: white;
-    color: rgba(0,0,0,1);
-    opacity: 1;
-}
-
-#front-page-ui-container h1{
+#navbar img {
+    height: 80%;
     margin-left: 10px;
 }
-#bg-parallax {
+
+#logo-text {
+    color: white;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    margin-left: 1em;
+}
+
+#button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1em;
+}
+
+#login-button {
+    border: solid 1px rgb(215,215,215);
+    border-radius: 500px;
+    background-color: white;
+    padding: 0.6em 3em;
+    font-size: 1em;
+    cursor: pointer
+}
+
+#signup-button {
+    border: solid 1px rgb(215,215,215);
+    border-radius: 500px;
+    background-color: black;
+    color: white;
+    padding: 0.6em 3em;
+    font-size: 1em;
+    cursor: pointer
+}
+
+#form-title {
+    margin: 0em;
+}
+
+#form-text {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+#registration-container {
+    width: 30%;
+    height: 63%;
+    border: solid 1px rgb(215,215,215);
+    border-radius: 1em;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+form {
     width: 100%;
     height: 100%;
-    background-image: url(img/campus-background.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#bg-parallax::before {
+form > div {
+    margin: 10px;
+}
+
+#name label, #email label, .password label {
     position: absolute;
-    content: "";
-    width: 100%;    
-    height: 70vh;
-    backdrop-filter: blur(5px) brightness(50%);
+    margin-bottom: 2.5em;
+    margin-left: 0.8em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: white;
 }
 
-#news {
+#name {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+#name div {
+    width: 49%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#birthdate {
+    width: 90%;
+}
+
+#birthdate-input {
     width: 100%;
-    height: 400px;
+    height: 2em;
+    display: flex;
 }
 
-/* registration styles */
+#birthdate-input > div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#year {
+    flex: 1;
+}
+
+#month {
+    flex: 1.5;
+}
+
+#day {
+    flex: 1;
+}
+
+select {
+    width: 95%;
+}
+
+#email {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.password {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.text-input {
+    height: 2.8em;
+    padding-left: 1.3em;
+    width: 100%;
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+#sign-up {
+    color: white;
+    border-radius: 500px;
+    background-color: black;
+    padding: 0.6em 3em;
+    text-decoration: none;
+    margin-top: 1em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#sign-up-text {
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+/*
+    red: #c41b1b #fad9d9 "Registration failed! Please fill up all the required information."
+    green: #0e8f28 #d9ffe1 "Registration sucessful! You may now login with your created account."
+    
+*/
+
+#form-message {
+    display: none;
+    font-size: 0.9em;
+    color: #c41b1b;
+    background-color: #fad9d9;
+    margin: 0;
+    border: solid 1px #c41b1b;
+    border-radius: 0.5em;
+    width: 90%;
+    height: 2em;
+    align-items: center;
+    justify-content: center;
+}
+
+#form-message p{
+    margin: 0;
+}
+
+#copyright-text {
+    font-size: 0.8em;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1em;
+}
+
+#login-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 30%;
+    border: solid 1px rgb(215,215,215);
+    border-radius: 1em;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+#login {
+    color: white;
+    border-radius: 500px;
+    background-color: black;
+    padding: 0.6em 3em;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 0.5em;
+}
+
+#login-message {
+    display: none;
+    font-size: 0.9em;
+    color: #c41b1b;
+    background-color: #fad9d9;
+    margin: 0;
+    border: solid 1px #c41b1b;
+    border-radius: 0.5em;
+    width: 90%;
+    height: 2em;
+    align-items: center;
+    justify-content: center;
+}
+
+#login-message p {
+    margin: 0;
+}
