@@ -42,6 +42,7 @@
 
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+                $studentID = $row['studentID'];
                 $lastName = $row['lastName'];
                 $firstName = $row['firstName'];
                 $middleName = $row['middleName'];
@@ -64,8 +65,8 @@
         <?php 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 try {
-                    $middleName = $_POST["middleName"];
-                    $suffix = $_POST["suffix"];
+                    $middleName = strtoupper($_POST["middleName"]);
+                    $suffix = strtoupper($_POST["suffix"]);
                     $gender = $_POST["gender"];
                     $region = $_POST["region_text"];
                     $province = $_POST["province_text"];
@@ -86,6 +87,15 @@
                                 WHERE email = '$login_email';";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
+
+                        $studentName = $lastName . ", " . $firstName . " " . $middleName;
+
+                        $sql = "INSERT INTO tbl_enrollment (studentID, studentName, enrollmentStatus) VALUES ($studentID,
+                        '$studentName', 'NOT ENROLLED');";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        
+                        echo "<script src='popupmsg-dashboard.js'></script>";
                     }  
                 } catch (PDOException $e) {
                     echo "Query failed! " . $e->getMessage();
@@ -124,13 +134,13 @@
             <input type="hidden" name="form-type" value="personal-information">
             <div class="profile-heading"><p>Personal Information</p></div>
             <div id="personal-info-container">
-                <div id="profile-picture-upload">
+                <!-- <div id="profile-picture-upload">
                     <div id="profile-picture-preview">
                         <img id="profile-picture-preview" src="img/default-picture.png">
                         <label for="img-upload">Upload</label>
-                        <input type="file" id="img-upload" accept="image/*">
+                        <input type="file" id="img-upload" accept="image/*" required>
                     </div>
-                </div>
+                </div> -->
                 <div id="personal-info">
                     <div>
                         <div>
@@ -264,7 +274,11 @@
                     ?>
                 </div>
             </div>
-            <input type="submit" id="submit-data" value="Submit"></input>
+            <?php
+                if (empty($region)) {
+                    echo '<input type="submit" id="submit-data" value="Submit"></input>';
+                }
+            ?>
         </form>
         <script src="dashboard.php"></script>
         <script src="buttons.js"></script>

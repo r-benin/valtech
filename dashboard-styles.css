@@ -185,6 +185,7 @@ h1 {
     height: 50%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #profile-picture-upload {
@@ -218,7 +219,7 @@ input[type="file"] {
 }
 
 #personal-info {
-    width: 75%;
+    width: 90%;
     height: 90%;
     display: flex;
     flex-wrap: wrap;
