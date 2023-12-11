@@ -168,10 +168,6 @@ h1 {
     margin: 0;
 }
 
-#student-profile > img {
-    opacity: 10%;
-}
-
 #student-profile > div {
     border: solid rgb(215,215,215) 0px;
 }
@@ -180,152 +176,30 @@ h1 {
     margin: 0px;
 }
 
-#personal-info-container {
-    width: 95%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-}
 
-#profile-picture-upload {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
-#profile-picture-upload label{
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    color: black;
-    padding: 0.5em;
-    border-radius: 500px;
-    border: 1px solid black;
-    cursor: pointer;
-}
 
-input[type="file"] {
-    display: none;
-}
 
-#profile-picture-upload img{
-    width: 150px;
-    height: 150px;
-    border: solid 1px rgb(215,215,215);
-}
 
-#personal-info {
-    width: 75%;
-    height: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
 
-.profile-heading {
-    width: 95%;
-    text-align: center;
-}
 
-.profile-heading p {
-    margin: 0;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: black;
-}
 
-#personal-info > div{
-    display: flex;
-    width: 50%;
-    height: 25%;
-    flex-direction: column;
-    justify-content: center;
-}
 
-#personal-info label{
-    display: block;
-    margin-bottom: 0.2em;
-    font-size: 0.9em;
-}
 
-#personal-info input[type="text"] {
-    width: 95%;
-    height: 2.5em;
-}
 
-.field-tooltip {
-    color: rgb(100, 100, 100);
-    font-size: 0.8em;
-}
 
-#personal-info select {
-    width: 95%;
-    height: 2.5em;
-}
 
-input[type="date"] {
-    width: 92%;
-    height: 2.5em;
-}
 
-#address-container {
-    width: 95%;
-    height: 30%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5px;
-}
 
-.address-select {
-    width: 45%;
-    height: 4em;
-    padding-left: 5px;
-}
 
-.address-select input[type="text"] {
-    width: 95%;
-    height: 2.5em;
-    
-}
 
-#address-container label{
-    display: block;
-    margin-bottom: 0.2em;
-    font-size: 0.9em;
-}
 
-#address-container div select {
-    width: 90%;
-    height: 2.5em;
-    display: block;
-}
 
-#address-field {
-    width: 90%;
-}
 
-#address-field input[type="text"] {
-    width: 98%;
-    height: 2.5em;
-}
 
-#submit-data {
-    color: white;
-    border-radius: 500px;
-    background-color: black;
-    border: none;
-    padding: 0.6em 3em;
-    text-decoration: none;
-    font-size: 1em;
-    cursor: pointer;
-    margin-bottom: 0.5em;
-    margin-top: 10px;
-}
+
+
+
 
 .popup-message {
     position: absolute;

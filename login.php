@@ -93,12 +93,13 @@
                                 $stmt->execute();
 
                                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+                                
                                 if (password_verify($login_password, $row['password'])) {
                                     echo "<script>console.log('Logged in!')</script>";
                                     session_start();
                                     $_SESSION['login'] = true;
                                     $_SESSION['email'] = $login_email;
+                                    $_SESSION['login_studentID'] = $row['studentID'];
                                     header('Location: dashboard.php');
                                 } else {
                                     echo "<script src='login-incorrect.js'></script>";

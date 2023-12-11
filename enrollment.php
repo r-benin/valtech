@@ -3,12 +3,11 @@
     <head>
         <title>myVALTECH Dashboard</title>
         <link rel="icon" href="img/valtech-black.png">
-        <link rel="stylesheet" href="dashboard-styles.css">
+        <link rel="stylesheet" href="enrollment-styles.css">
     </head>
     <body>
 
         <?php
-            
             session_start();
             if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
                 header('Location: login.php');
@@ -40,7 +39,6 @@
 
         ?>
 
-
         <div id="navbar">
             <img id="menu-button" src="img/menu.png">
             <img id="logo" src="img/myvaltech.png">
@@ -53,18 +51,16 @@
             </div>
         </div>
         <div id="side-navbar">
-            <div id="profile-button" class="selected-navbar-button">
+            <div id="profile-button" class="unselected-navbar-button" onclick="location.href = 'dashboard.php'">
                 <img src="img/profile.png">
                 <p class="side-navbar-text">Profile</p>
             </div>
-            <div id="enrollment-button" class="unselected-navbar-button">
+            <div id="enrollment-button" class="selected-navbar-button">
                 <img src="img/enrollment.png">
                 <p class="side-navbar-text">Enrollment</p>
             </div>
-            
         </div>
         <div id="student-profile">
-            <img src="img/wip.png">
         </div>
         <script src="buttons.js"></script>
     </body>
